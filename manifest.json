@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Dexter Computer Beta Dark Mode",
+  "version": "1.0",
+  "description": "Această extensie Dexter Computer Beta Dark Mode este încă în moderare.",
+  "permissions": ["activeTab"],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
