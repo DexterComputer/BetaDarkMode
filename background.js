@@ -8,13 +8,18 @@ chrome.action.onClicked.addListener(() => {
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message.action === 'startAutoclick') {
     startAutoclick(message.interval, message.repetitions, message.x, message.y);
+    sendResponse(); // Invia una risposta vuota al popup
   } else if (message.action === 'stopAutoclick') {
     stopAutoclick();
+    sendResponse(); // Invia una risposta vuota al popup
   } else if (message.action === 'startAutoRefresh') {
     startAutoRefresh(message.refreshInterval);
+    sendResponse(); // Invia una risposta vuota al popup
   } else if (message.action === 'stopAutoRefresh') {
     stopAutoRefresh();
+    sendResponse(); // Invia una risposta vuota al popup
   }
+  return true; // Consenti l'invio asincrono della risposta
 });
 
 function startAutoclick(interval, repetitions, x, y) {
