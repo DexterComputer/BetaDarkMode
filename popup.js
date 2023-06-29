@@ -9,19 +9,19 @@ function startAutoclick() {
   const x = parseInt(document.getElementById('x').value);
   const y = parseInt(document.getElementById('y').value);
 
-  chrome.runtime.sendMessage({ action: 'startAutoclick', interval, repetitions, x, y });
+  chrome.runtime.sendMessage({ action: 'startAutoclick', interval, repetitions, x, y }, () => {});
 }
 
 function stopAutoclick() {
-  chrome.runtime.sendMessage({ action: 'stopAutoclick' });
+  chrome.runtime.sendMessage({ action: 'stopAutoclick' }, () => {});
 }
 
 function startAutoRefresh() {
   const refreshInterval = parseInt(document.getElementById('refreshInterval').value);
 
-  chrome.runtime.sendMessage({ action: 'startAutoRefresh', refreshInterval });
+  chrome.runtime.sendMessage({ action: 'startAutoRefresh', refreshInterval }, () => {});
 }
 
 function stopAutoRefresh() {
-  chrome.runtime.sendMessage({ action: 'stopAutoRefresh' });
+  chrome.runtime.sendMessage({ action: 'stopAutoRefresh' }, () => {});
 }
