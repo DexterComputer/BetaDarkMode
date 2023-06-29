@@ -5,7 +5,7 @@
   <style>
     body {
       width: 300px;
-      height: 320px;
+      height: 420px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -27,6 +27,7 @@
       padding: 5px 10px;
     }
   </style>
+  <script src="popup.js"></script>
 </head>
 <body>
   <h1>Dexter Computer Beta Dark Mode</h1>
@@ -38,9 +39,12 @@
   <input type="number" id="x">
   <label for="y">Coord. Y:</label>
   <input type="number" id="y">
-  <button id="startButton">Avvia Autoclick</button>
-  <button id="stopButton">Stop Autoclick</button>
+  <button id="startAutoclickButton">Avvia Autoclick</button>
+  <button id="stopAutoclickButton">Stop Autoclick</button>
 
-  <script src="popup.js"></script>
+  <label for="refreshInterval">Intervallo di tempo per l'autorefresh (in millisecondi):</label>
+  <input type="number" id="refreshInterval" min="1000" step="1000" value="5000">
+  <button id="startAutoRefreshButton">Avvia Autorefresh</button>
+  <button id="stopAutoRefreshButton">Stop Autorefresh</button>
 </body>
 </html>
