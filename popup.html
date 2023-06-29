@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dexter Computer Beta Dark Mode</title>
+  <style>
+    body {
+      width: 300px;
+      height: 320px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+    }
+
+    h1 {
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    input {
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 5px 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Dexter Computer Beta Dark Mode</h1>
+  <label for="interval">Intervallo di tempo per l'autoclick (in millisecondi):</label>
+  <input type="number" id="interval" min="100" step="100" value="1000">
+  <label for="repetitions">Numero di ripetizioni:</label>
+  <input type="number" id="repetitions" min="1" value="1">
+  <label for="x">Coord. X:</label>
+  <input type="number" id="x">
+  <label for="y">Coord. Y:</label>
+  <input type="number" id="y">
+  <button id="startButton">Avvia Autoclick</button>
+  <button id="stopButton">Stop Autoclick</button>
+
+  <script src="popup.js"></script>
+</body>
+</html>
