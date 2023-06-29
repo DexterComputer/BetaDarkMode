@@ -1,3 +1,6 @@
+let intervalId;
+let refreshIntervalId;
+
 chrome.action.onClicked.addListener(() => {
   chrome.tabs.create({ url: chrome.runtime.getURL('popup.html') });
 });
@@ -7,10 +10,12 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     startAutoclick(message.interval, message.repetitions, message.x, message.y);
   } else if (message.action === 'stopAutoclick') {
     stopAutoclick();
+  } else if (message.action === 'startAutoRefresh') {
+    startAutoRefresh(message.refreshInterval);
+  } else if (message.action === 'stopAutoRefresh') {
+    stopAutoRefresh();
   }
 });
-
-let intervalId;
 
 function startAutoclick(interval, repetitions, x, y) {
   let count = 0;
@@ -28,6 +33,18 @@ function startAutoclick(interval, repetitions, x, y) {
 
 function stopAutoclick() {
   clearInterval(intervalId);
+}
+
+function startAutoRefresh(refreshInterval) {
+  refreshIntervalId = setInterval(() => {
+    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+      chrome.tabs.reload(tabs[0].id);
+    });
+  }, refreshInterval);
+}
+
+function stopAutoRefresh() {
+  clearInterval(refreshIntervalId);
 }
 
 function clickAtPosition(x, y) {
