@@ -4,6 +4,9 @@
   "version": "1.0",
   "description": "Această extensie Dexter Computer Beta Dark Mode este încă în moderare.",
   "permissions": ["activeTab"],
+  "background": {
+    "service_worker": "background.js"
+  },
   "action": {
     "default_popup": "popup.html"
   }
